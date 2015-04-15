@@ -28,5 +28,4 @@ RUN mkdir /usr/lib/jenkins /var/lib/jenkins /home/jenkins /var/run/sshd
 RUN chown -R jenkins:jenkins /usr/lib/jenkins /var/lib/jenkins /home/jenkins
 
 # USER jenkins
-
 CMD ["/bin/bash"]
