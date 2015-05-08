@@ -1,11 +1,12 @@
-# Docker base image for other CloudBees Jenkins images
+# Docker base image for other CloudBees SA Jenkins images
 
 FROM debian:jessie
-MAINTAINER Andy Pemberton <apemberton@cloudbees.com>
+MAINTAINER Kurt Madel <kmadel@cloudbees.com>
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     openjdk-7-jdk \
     openssh-server \
+    supervisor \
     curl \
     ntp \
     ntpdate  \
@@ -22,7 +23,7 @@ RUN echo "jenkins:jenkins" | chpasswd
 RUN usermod -a -G docker jenkins
 
 # Make directories for [masters] JENKINS_HOME, jenkins.war lib and [slaves] remote FS root, ssh privilege separation directory
-RUN mkdir /usr/lib/jenkins /var/lib/jenkins /home/jenkins /var/run/sshd
+RUN mkdir -p /usr/lib/jenkins /var/lib/jenkins /home/jenkins /var/run/sshd
 
 # Set permissions
 RUN chown -R jenkins:jenkins /usr/lib/jenkins /var/lib/jenkins /home/jenkins
