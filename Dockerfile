@@ -9,9 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ntp \
     ntpdate
 
-# Install Docker client
-RUN curl https://get.docker.io/builds/Linux/x86_64/docker-latest -o /usr/local/bin/docker
-RUN chmod +x /usr/local/bin/docker
+# Create docker group
 RUN groupadd docker
 
 # Create Jenkins user
