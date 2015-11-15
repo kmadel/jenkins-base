@@ -1,16 +1,13 @@
 # Docker base image for other CloudBees SA Jenkins images
 
-FROM debian:jessie
+FROM java:8-jdk
 MAINTAINER Kurt Madel <kmadel@cloudbees.com>
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    openjdk-8-jdk \
     openssh-server \
-    supervisor \
     curl \
     ntp \
-    ntpdate  \
-    git
+    ntpdate
 
 # Install Docker client
 RUN curl https://get.docker.io/builds/Linux/x86_64/docker-latest -o /usr/local/bin/docker
