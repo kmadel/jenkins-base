@@ -4,7 +4,7 @@ FROM debian:jessie
 MAINTAINER Kurt Madel <kmadel@cloudbees.com>
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    openjdk-7-jdk \
+    openjdk-8-jdk \
     openssh-server \
     supervisor \
     curl \
